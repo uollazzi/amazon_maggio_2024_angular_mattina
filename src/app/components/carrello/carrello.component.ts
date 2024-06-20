@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProdottiService } from '../../services/prodotti.service';
 
 @Component({
   selector: 'app-carrello',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './carrello.component.css'
 })
 export class CarrelloComponent {
+  constructor(public prodottiService: ProdottiService) {
 
+  }
 }
+

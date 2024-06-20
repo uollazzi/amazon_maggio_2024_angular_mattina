@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Prodotto } from '../../models/prodotto';
+import { ProdottiService } from '../../services/prodotti.service';
 
 @Component({
   selector: 'app-prodotto-preview',
@@ -10,4 +11,11 @@ export class ProdottoPreviewComponent {
   @Input()
   prodotto?: Prodotto;
 
+  constructor(public ps: ProdottiService) {
+
+  }
+
+  addToCart() {
+    this.ps.aggiungiACarrello(this.prodotto!);
+  }
 }
