@@ -12,4 +12,6 @@ export class ProdottiService {
   getProdotti() {
     return PRODOTTI as Prodotto[];
   }
+
+
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Prodotto } from '../../models/prodotto';
 
 @Component({
   selector: 'app-prodotto-preview',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './prodotto-preview.component.css'
 })
 export class ProdottoPreviewComponent {
+  @Input()
+  prodotto?: Prodotto;
 
 }
