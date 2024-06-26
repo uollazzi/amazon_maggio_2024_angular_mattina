@@ -8,7 +8,15 @@ export type Prodotto = {
   rating: Rating
 }
 
-export type Rating = {
-  rate: number
-  count: number
+export interface Rating {
+  rate: number;
+  count: number;
+}
+
+export interface User {
+  id: number;
+  nome: string;
+  email: string;
+  saluta(): string;
+  calcolaEta(anno: number): number;
 }

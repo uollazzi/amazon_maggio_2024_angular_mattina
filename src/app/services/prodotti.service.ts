@@ -1,15 +1,30 @@
 import { Injectable } from '@angular/core';
-import { PRODOTTI } from "../data/prodotti";
+// import { PRODOTTI } from "../data/prodotti";
 import { Prodotto } from '../models/prodotto';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdottiService {
+
+  constructor(private http: HttpClient) {
+
+  }
+
   prodottiACarrello: Prodotto[] = [];
 
-  getProdotti() {
-    return PRODOTTI as Prodotto[];
+  // generics = il modo per passare un tipo come parametro
+
+  getProdotti(): Observable<Prodotto[]> {
+    return this.http.get<Prodotto[]>("https://fakestoreapi.com/products");
+
+    // return PRODOTTI as Prodotto[];
+  }
+
+  getCategories() {
+    return this.http.get<string[]>("https://fakestoreapi.com/products/categories");
   }
 
   aggiungiACarrello(prodotto: Prodotto) {
@@ -27,3 +42,10 @@ export class ProdottiService {
     }
   }
 }
+
+
+function somma(x: number, y: number): void {
+  console.log(x + y);
+}
+
+somma(6, 8)
