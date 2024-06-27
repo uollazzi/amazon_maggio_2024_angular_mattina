@@ -23,6 +23,11 @@ export class ProdottiService {
     // return PRODOTTI as Prodotto[];
   }
 
+  getProdottoById(id: string): Observable<Prodotto> {
+    return this.http.get<Prodotto>("https://fakestoreapi.com/products/" + id);
+    // https://fakestoreapi.com/products/8
+  }
+
   getCategories() {
     return this.http.get<string[]>("https://fakestoreapi.com/products/categories");
   }
