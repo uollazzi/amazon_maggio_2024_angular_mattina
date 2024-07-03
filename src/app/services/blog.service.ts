@@ -11,15 +11,16 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>("https://jsonplaceholder.typicode.com/posts");
+    return this.http.get<Post[]>("http://localhost:3000/articoli");
   }
 
   getPostById(id: string): Observable<Post> {
-    return this.http.get<Post>("https://jsonplaceholder.typicode.com/posts/" + id);
+    return this.http.get<Post>("http://localhost:3000/articoli/" + id);
   }
 
   addPost(post: PostDTO) {
-    console.log(post);
+    // console.log(post);
     // chiamata ajax POST
+    return this.http.post<Post>("http://localhost:3000/articoli", post);
   }
 }
